@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<script type="text/javascript">
+			window.onload = function() {
+				var maxDiv = 20;
+				var eachSpan = 30;
+
+				for (var i = 0; i < maxDiv; i++) {
+					var divElement = document.createElement('div');
+					for (var j = 0; j < eachSpan; j++) {
+						var spanElement = document.createElement('span');
+						spanElement.style.margin = '5px';
+						divElement.append(spanElement);
+					}
+					document.body.append(divElement);
+				}
+
+				var divItems = document.querySelectorAll('div');
+
+				divItems.forEach(function(div, divIdx) {
+					var spanItems = div.querySelectorAll('span');
+					spanItems.forEach(function(span, spanIdx) {
+						span.innerHTML = (divIdx + 1) * (spanIdx + 1);
+					});
+				});
+			};
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

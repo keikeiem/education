@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<script type="text/javascript">
+			window.onload = function() {
+				var test = function() {
+					this.something = 'abc';
+				};
+
+				var testObj = new test();
+
+				console.log(testObj);
+				test.prototype.getSomething = function() {
+					return this.something;
+				};
+
+				for (var key in testObj) {
+					if (testObj.hasOwnProperty(key)) {
+						console.log(key);
+					}
+				}
+			};
+
+		</script>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>
