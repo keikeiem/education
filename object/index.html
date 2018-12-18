@@ -3,27 +3,30 @@
 		<meta charset="utf-8"/>
 		<script type="text/javascript">
 			window.onload = function() {
-				var test = function() {
-					this.something = 'abc';
-				};
-
-				var testObj = new test();
-
-				console.log(testObj);
-				test.prototype.getSomething = function() {
-					return this.something;
-				};
-
-				for (var key in testObj) {
-					if (testObj.hasOwnProperty(key)) {
-						console.log(key);
+				// 객체의 참조???
+				var obj = {
+					name: 'object',
+					array: [1, 2, 3],
+					getName: function() {
+						return this.name;
+					},
+					getArray: function() {
+						return this.array;
 					}
-				}
-			};
+				};
 
+				var name = obj.name;
+				name = 'test';
+				console.log('obj.getName : ', obj.getName());
+
+				var array = obj.array;
+				array[0] = 5;
+				console.log('obj.getArray : ', obj.getArray());
+			};
 		</script>
 	</head>
 	<body>
-		<div></div>
+		<button>객체</button>
+		<textarea id="result" style="width:500px; height:400px;"></textarea>
 	</body>
 </html>
