@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<script type="text/javascript">
+			window.onload = function() {
+				// 객체의 참조???
+				var obj = {
+					name: 'object',
+					array: [1, 2, 3],
+					getName: function() {
+						return this.name;
+					},
+					getArray: function() {
+						return this.array;
+					},
+					setName: function(name) {
+						this.name = name;
+					}
+				};
+
+				var name = obj.name;
+				name = 'test';
+				console.log('obj.getName : ', obj.getName());
+
+				var array = obj.array;
+				array[0] = 5;
+				console.log('obj.getArray : ', obj.getArray());
+
+				// object sealing and freezing
+				var freeze = {
+					name: 'freezing',
+					array: [4, 5, 6],
+					getName: function() {
+						return this.name;
+					},
+					getArray: function() {
+						return this.array;
+					},
+					setName: function(name) {
+						this.name = name;
+					}
+				};
+
+				Object.freeze(freeze);
+				freeze.setName('asc');
+				console.log(freeze);
+
+				var objOne = {
+					name: 'objOne',
+					array: [7, 8, 9]
+				};
+
+				obj.setName.call(objOne, 'kkm');
+				console.log('objOne : ', objOne);
+			};
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
